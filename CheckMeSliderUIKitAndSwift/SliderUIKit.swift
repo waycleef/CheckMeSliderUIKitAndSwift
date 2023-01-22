@@ -16,7 +16,6 @@ struct SliderUIKit: UIViewRepresentable {
         let slider = UISlider()
         slider.minimumValue = 0
         slider.maximumValue = 100
-        slider.value = Float(value)
         slider.addTarget(context.coordinator,
                          action: #selector(Coordinator.didCahngeDone),
                          for: .valueChanged)
