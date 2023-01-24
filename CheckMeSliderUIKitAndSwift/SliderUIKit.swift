@@ -10,7 +10,7 @@ import SwiftUI
 struct SliderUIKit: UIViewRepresentable {
 
     @Binding var value: Int
-    var alpha: Double
+    let alpha: Int
     
     func makeUIView(context: Context) -> UISlider {
         let slider = UISlider()
@@ -50,6 +50,6 @@ extension SliderUIKit {
 
 struct SliderUIKit_Previews: PreviewProvider {
     static var previews: some View {
-        SliderUIKit(value: .constant(71), alpha: 0.5)
+        SliderUIKit(value: .constant(71), alpha: 50)
     }
 }
