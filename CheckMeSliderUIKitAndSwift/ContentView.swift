@@ -20,7 +20,7 @@ struct ContentView: View {
             
             HStack {
                 Text("0")
-                SliderUIKit(value: $currentValue, alpha: Double(computeScore()))
+                SliderUIKit(value: $currentValue, alpha: computeScore())
 
                 Text("100")
             }
