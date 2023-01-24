@@ -13,9 +13,8 @@ struct TargetValueView: View {
     
     var body: some View {
         HStack {
-            Text("Подвиньте слайдер, как можно ближе к:")
-            Text("\(targetValue)")
-                .frame(width: 40)
+            Text("Подвиньте слайдер, как можно ближе к: \(targetValue)")
+
         }
     }
 }

@@ -12,7 +12,7 @@ struct ContentView: View {
     @State private var currentValue: Int = Int.random(in: 0...100)
     @State private var targetValue = Int.random(in: 0...100)
     @State private var showAlert = false
-    @State private var alpha: Double = 1.0
+
 
     var body: some View {
         VStack{
@@ -20,12 +20,8 @@ struct ContentView: View {
             
             HStack {
                 Text("0")
-                SliderUIKit(value: $currentValue, alpha: $alpha)
-                    .onChange(of: currentValue) { newValue in
-                        let dif = computeScore()
-                        let result: Double = Double(dif) / 100
-                        alpha = result
-                    }
+                SliderUIKit(value: $currentValue, alpha: Double(computeScore()))
+
                 Text("100")
             }
             .padding()
@@ -34,13 +30,9 @@ struct ContentView: View {
             ButtonView(label: "Проверь меня") {
                 showAlert.toggle()
             }
-            .alert(isPresented: $showAlert) {
-                Alert(title: Text("Ваш результат"),
-                      message: Text("\(computeScore())")
-                )
+            .alert("Ваш результат", isPresented: $showAlert, actions: {}) {
+                Text(computeScore().formatted())
             }
-            .padding()
-            
             
             ButtonView(label: "Начать заново") {
                 targetValue = Int.random(in: 0...100)
